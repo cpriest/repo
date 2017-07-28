@@ -1,0 +1,8 @@
+[cpriest]
+name=Clint Priests' personal build repository
+baseurl=http://cpriest.github.io/repo/CentOS/$releasever/
+#priority=0
+metadata_expire=7d
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-cpriest-repo
