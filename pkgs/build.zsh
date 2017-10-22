@@ -17,6 +17,7 @@ NAME="`basename $PWD`";
 
 VERSION=`pcregrep -o1 '^Version:\s+([\d\.]+)$' $NAME.spec`;
 ARCH=`pcregrep -o1 '^BuildArch:\s+(.+)$' $NAME.spec`;
+ARCH=${ARCH:-x86_64}
 
 VER_NAME="$NAME-$VERSION";
 
@@ -24,19 +25,23 @@ indent() {
 	perl -pe 's/^/\t/g';
 }
 
-echo -e "\e[31;1mCreating tar archive of \e[33;1m./files/\e[31;1m into $VER_NAME\e[m";
-{
-	cp -r ./files $VER_NAME; 
-	tar -cvzf ~/rpmbuild/SOURCES/$VER_NAME.tar.gz $VER_NAME || exit 1;
-	rm -rf $VER_NAME;
-} |& indent;
+if [[ -e ./files ]]; then
+	echo -e "\e[31;1mCreating tar archive of \e[33;1m./files/\e[31;1m into $VER_NAME\e[m";
+	{
+		cp -r ./files $VER_NAME; 
+		tar -cvzf ~/rpmbuild/SOURCES/$VER_NAME.tar.gz $VER_NAME || exit 1;
+		rm -rf $VER_NAME;
+	} |& indent;
+else
+	spectool -g --directory ~/rpmbuild/SOURCES $NAME.spec
+fi;
 
 echo;
 
 cp $NAME.spec ~/rpmbuild/SPECS/
 
 echo -e "\e[31;1mBuilding the repository...\e[m";
-rpmbuild -ba ~/rpmbuild/SPECS/$NAME.spec |& indent;
+rpmbuild -ba -vv ~/rpmbuild/SPECS/$NAME.spec |& indent;
 
 echo;
 echo -e "\e[31;1mLinting the spec file...\e[m";
