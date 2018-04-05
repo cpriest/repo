@@ -1,7 +1,7 @@
 #!/bin/env zsh
 
 if [[ $# != 1 ]] {
-	echo "This script takes exactly one argument which should be the version of cpriest-repo-release-V.VV";
+	echo "This script takes exactly one argument which should be the version of cpriest-repo-release as in ./build.zsh 1.0.1";
 	exit 1;
 }
 
@@ -17,6 +17,8 @@ echo -e "\e[31;1mCreating tar archive of $FILES into $VER_NAME\e[m";
 	cp -t $VER_NAME $FILES || exit 1;
 
 	tar -cvzf ~/rpmbuild/SOURCES/$VER_NAME.tar.gz $VER_NAME || exit 1;
+	echo;
+	ls -a --color ~/rpmbuild/SOURCES/$VER_NAME.tar.gz;
 
 	rm -rf $VER_NAME;
 } |& perl -pe 's/^/\t/g';
@@ -34,6 +36,6 @@ echo -e "\e[31;1mLinting the spec file...\e[m";
 rpmlint -i ~/rpmbuild/SPECS/cpriest-repo-release.spec |& perl -pe 's/^/\t/g';
 echo;
 echo;
-echo -e "\e[31;1mCopying the RPM file into place...\e[m";
-mkdir -p ../CentOS/7/noarch/
-cp -v ~/rpmbuild/RPMS/noarch/cpriest-repo-release*.rpm ../CentOS/7/noarch/ |& perl -pe 's/^/\t/g';
+echo -e "\e[31;1mMoving the RPM file into place...\e[m";
+mkdir -p ../../CentOS/noarch/
+mv -v ~/rpmbuild/RPMS/noarch/cpriest-repo-release*.rpm ../../CentOS/noarch/ |& perl -pe 's/^/\t/g' |& perl -pe "s/['‘’]//g";

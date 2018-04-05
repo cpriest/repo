@@ -1,5 +1,14 @@
+[cpriest-noarch]
+name=Clint Priests' personal build repository (noarch)
+baseurl=http://cpriest.github.io/repo/CentOS/noarch/
+#priority=0
+metadata_expire=7d
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-cpriest-repo
+
 [cpriest]
-name=Clint Priests' personal build repository
+name=Clint Priests' personal build repository (CentOS 6/7)
 baseurl=http://cpriest.github.io/repo/CentOS/$releasever/
 #priority=0
 metadata_expire=7d
