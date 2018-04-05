@@ -1,7 +1,7 @@
 #!/bin/env zsh
 
 if [[ $# != 1 ]] {
-	echo "This script takes exactly one argument which should be the version of cpriest-repo-release as in ./build.zsh 1.0.1";
+	echo "This script takes exactly one argument which should be the version of cpriest-repo-release as in ./build.zsh 1.0";
 	exit 1;
 }
 

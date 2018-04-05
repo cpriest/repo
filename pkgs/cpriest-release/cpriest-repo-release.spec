@@ -1,7 +1,7 @@
 Name:		cpriest-repo-release
 Summary:	Installs the repository reference for my repository
 Version:	1.0
-Release:	2
+Release:	3
 License:	MIT
 Source0:	%{name}-%{version}.tar.gz
 BuildArch:	noarch
@@ -27,7 +27,9 @@ cp RPM-GPG-KEY-cpriest-repo %{buildroot}/etc/pki/rpm-gpg/RPM-GPG-KEY-cpriest-rep
 %config(noreplace) /etc/pki/rpm-gpg/RPM-GPG-KEY-cpriest-repo
 
 %changelog
- * Thu Apr 05 2018 - Clint Priest <github-repo@rxv.me> 1.0.2
+ * Thu Apr 05 2018 - Clint Priest <github-repo@rxv.me> 1.0-3
+ - Fixed the noarch repo path.
+ * Thu Apr 05 2018 - Clint Priest <github-repo@rxv.me> 1.0-2
  - Built as noarch without .el7
- * Sat Jul 29 2017 - Clint Priest <github-repo@rxv.me> 1.0
+ * Sat Jul 29 2017 - Clint Priest <github-repo@rxv.me> 1.0-1
  - Initial build of release rpm

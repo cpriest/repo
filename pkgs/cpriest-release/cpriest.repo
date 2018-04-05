@@ -1,6 +1,6 @@
 [cpriest-noarch]
 name=Clint Priests' personal build repository (noarch)
-baseurl=http://cpriest.github.io/repo/CentOS/noarch/
+baseurl=http://cpriest.github.io/repo/CentOS/
 #priority=0
 metadata_expire=7d
 enabled=1
