@@ -8,4 +8,8 @@ for dir in `ls -1d **/*.rpm(:h:h:A) | sort -u`; {
 	cd $dir;
 	createrepo . | perl -pe 's/^/\t/g';
 }
-
+echo;
+echo "Adding ./CentOS to git and comitting a build release";
+git add --all CentOS
+git commit -m 'Build of repo';
+git push;
