@@ -38,4 +38,6 @@ echo;
 echo;
 echo -e "\e[31;1mMoving the RPM file into place...\e[m";
 mkdir -p ../../CentOS/noarch/
-mv -v ~/rpmbuild/RPMS/noarch/cpriest-repo-release*.rpm ../../CentOS/noarch/ |& perl -pe 's/^/\t/g' |& perl -pe "s/['‘’]//g";
+mv -v ~/rpmbuild/RPMS/noarch/cpriest-repo-release*.rpm ../../CentOS/noarch/ |& perl -pe 's/^/\tmv /g' |& perl -pe "s/['‘’]//g";
+LATEST=`print -l ../../CentOS/noarch/cpriest-repo-release-1.0*.rpm(om) | head -n 1`;
+cp -v $LATEST ../../CentOS/noarch/cpriest-repo-release-latest.noarch.rpm |& perl -pe 's/^/\tcp /g' |& perl -pe "s/['‘’]//g";

@@ -8,5 +8,5 @@ Use completely at your own risk.
 You may install my repository by running this:
 
 ```
-yum install https://cpriest.github.io/repo/CentOS/7/noarch/cpriest-repo-release-1.0-1.el7.centos.noarch.rpm
+yum install https://cpriest.github.io/repo/CentOS/noarch/cpriest-repo-release-latest.noarch.rpm
 ```
