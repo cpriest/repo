@@ -15,7 +15,7 @@ yum install https://cpriest.github.io/repo/CentOS/noarch/cpriest-repo-release-la
 
 ```
 # Add repository to /etc/apk/repositories
-echo 'https://cpriest.github.io/repo/alpine/edge/x86_64' | tee -a /etc/apk/repositories
+echo 'https://cpriest.github.io/repo/alpine/edge' | tee -a /etc/apk/repositories
 
 # Note: if you want this repository to take priority over other repos, you'll need to edit /etc/apk/repositories and change its location, the higher up the higher priority.
 
